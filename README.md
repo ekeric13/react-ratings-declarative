@@ -81,14 +81,14 @@ class Bar extends Component {
 | changeRating | function | ()=>{} | Callback that will be passed the new rating a user selects | `const setNewRating = (rating) => this.props.dispatch( fooActions.setRating(rating) )` |
 | gradientPathName | string | '' | gradientPathname needed if app's path is not at the root | `/app/` |
 | ignoreInlineStyles | boolean | false | ignore all the inline styles and write your own css using the provided classes | `true` | 
-| svgIconPaths | string | 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z' | Set a path that describes the svg shape | 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z' |
-| svgIconViewBoxes | string | '0 0 51 48' | Set the view box for a custom svg path you might have | '0 0 51 48' |
-| svgs | node | none | Use a custom svg or react element | `<svg><circle /></svg>` |
-| widgetRatedColors | string | 'rgb(109, 122, 130)' | Color of stars that the user has rated | `black` |
-| widgetEmptyColors | string | 'rgb(203, 211, 227)' | Color of stars that the use hasn't rated | `grey` |
-| widgetHoverColors | string | 'rgb(230, 67, 47)' | Color of star when hovering over it in selection mode | `yellow` |
-| widgetDimensions | string | '50px' | The width and height of the star | `15px` |
-| starSpacings | string | '7px' | The spacing between the stars | `0` |
+| svgIconPaths | string | 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z' | Set a path that describes the svg shape for all the children | 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z' |
+| svgIconViewBoxes | string | '0 0 51 48' | Set the view box for a custom svg path you might have for all the children | '0 0 51 48' |
+| svgs | node | none | Use a custom svg or react element for all the children | `<svg><circle /></svg>` |
+| widgetRatedColors | string | 'rgb(109, 122, 130)' | Color of stars that the user has rated, applied to all the children | `black` |
+| widgetEmptyColors | string | 'rgb(203, 211, 227)' | Color of stars that the use hasn't rated, applied to all the children | `grey` |
+| widgetHoverColors | string | 'rgb(230, 67, 47)' | Color of star when hovering over it in selection mode, applied to all the children | `yellow` |
+| widgetDimensions | string | '50px' | The width and height of the star, applied to all the children | `15px` |
+| starSpacings | string | '7px' | The spacing between the stars, applied to all the children | `0` |
 
 ### Widget
 

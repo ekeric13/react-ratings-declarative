@@ -41,7 +41,7 @@ class Widget extends Component {
       widgetDimension,
       inheritWidgetDimension
     } = this.props;
-    let widgetSvgStyle = {
+    const widgetSvgStyle = {
       width: widgetDimension || inheritWidgetDimension,
       height: widgetDimension || inheritWidgetDimension,
       transition: 'transform .2s ease-in-out',

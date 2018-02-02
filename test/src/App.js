@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import WidgetRatings, { Widget } from 'react-ratings-declarative';
-// import WidgetRatings from './widget-ratings';
-// import Widget from './widget';
+// import WidgetRatings, { Widget } from 'react-ratings-declarative';
+import WidgetRatings from './widget-ratings';
+import Widget from './widget';
 import Cat from './cat';
 
 class App extends Component {
