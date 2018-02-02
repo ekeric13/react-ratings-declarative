@@ -13,13 +13,4 @@ Object.defineProperty(exports, 'default', {
   }
 });
 
-var _widget = require('./widget');
-
-Object.defineProperty(exports, 'Widget', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_widget).default;
-  }
-});
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

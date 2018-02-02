@@ -20,7 +20,7 @@ npm install --save react-ratings-declarative
 ## Usage
 
 ```js
-import WidgetRatings, { Widget } from 'react-ratings-declarative';
+import Ratings from 'react-ratings-declarative';
 
 class Foo extends Component {
     changeRating( newRating ) {
@@ -31,21 +31,21 @@ class Foo extends Component {
 
     render() {
       return (
-          <WidgetRatings
+          <Ratings
             rating={this.state.rating}
             widgetRatedColors="blue"
             changeRating={this.changeRating}
           >
-            <Widget />
-            <Widget />
-            <Widget
+            <Ratings.Widget />
+            <Ratings.Widget />
+            <Ratings.Widget
               widgetDimension="60px"
               svgIconViewBox="0 0 5 5"
               svgIconPath="M2 1 h1 v1 h1 v1 h-1 v1 h-1 v-1 h-1 v-1 h1 z"
             />
-            <Widget widgetHoverColor="black" />
-            <Widget />
-          </WidgetRatings>
+            <Ratings.Widget widgetHoverColor="black" />
+            <Ratings.Widget />
+          </Ratings>
       );
     }
 }
@@ -54,17 +54,17 @@ class Foo extends Component {
 class Bar extends Component {
   render() {
     return (
-      <WidgetRatings
+      <Ratings
         rating={3.403}
         widgetDimensions="40px"
         widgetSpacings="15px"
       >
-        <Widget widgetRatedColor="green" />
-        <Widget widgetSpacing="30px" widgetDimension="15px" />
-        <Widget widgetRatedColor="black" />
-        <Widget widgetRatedColor="rebeccapurple" />
-        <Widget />
-      </WidgetRatings>
+        <Ratings.Widget widgetRatedColor="green" />
+        <Ratings.Widget widgetSpacing="30px" widgetDimension="15px" />
+        <Ratings.Widget widgetRatedColor="black" />
+        <Ratings.Widget widgetRatedColor="rebeccapurple" />
+        <Ratings.Widget />
+      </Ratings>
     );
   }
 }

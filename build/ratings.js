@@ -16,6 +16,10 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _utils = require('./utils');
 
+var _widget = require('./widget');
+
+var _widget2 = _interopRequireDefault(_widget);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24,13 +28,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var WidgetRatings = function (_Component) {
-  _inherits(WidgetRatings, _Component);
+var Ratings = function (_Component) {
+  _inherits(Ratings, _Component);
 
-  function WidgetRatings(props) {
-    _classCallCheck(this, WidgetRatings);
+  function Ratings(props) {
+    _classCallCheck(this, Ratings);
 
-    var _this = _possibleConstructorReturn(this, (WidgetRatings.__proto__ || Object.getPrototypeOf(WidgetRatings)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Ratings.__proto__ || Object.getPrototypeOf(Ratings)).call(this, props));
 
     _this.unHoverOverWidget = function () {
       _this.setState({
@@ -53,7 +57,7 @@ var WidgetRatings = function (_Component) {
     return _this;
   }
 
-  _createClass(WidgetRatings, [{
+  _createClass(Ratings, [{
     key: 'stopColorStyle',
     value: function stopColorStyle(color) {
       var stopColorStyle = {
@@ -234,10 +238,13 @@ var WidgetRatings = function (_Component) {
     }
   }]);
 
-  return WidgetRatings;
+  return Ratings;
 }(_react.Component);
 
-WidgetRatings.propTypes = {
+Ratings.Widget = _widget2.default;
+
+
+Ratings.propTypes = {
   rating: _propTypes2.default.number.isRequired,
   typeOfWidget: _propTypes2.default.string.isRequired,
   changeRating: _propTypes2.default.func,
@@ -253,7 +260,7 @@ WidgetRatings.propTypes = {
   svgs: _propTypes2.default.node
 };
 
-WidgetRatings.defaultProps = {
+Ratings.defaultProps = {
   rating: 0,
   typeOfWidget: 'Star',
   changeRating: null,
@@ -268,4 +275,4 @@ WidgetRatings.defaultProps = {
   widgetSpacings: '7px'
 };
 
-exports.default = WidgetRatings;
+exports.default = Ratings;
