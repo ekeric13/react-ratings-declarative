@@ -6,7 +6,7 @@ import { randomNumber } from './utils';
 class Widget extends Component {
   constructor(props) {
     super(props);
-    if (props.isPartiallyFullWidget && props.widgetRatedColor) {
+    if (props.hasCustomGradientColor) {
       this.fillId = `widgetGrad${randomNumber()}`;
     }
   }
@@ -16,7 +16,6 @@ class Widget extends Component {
     const {
       changeRating,
       widgetSpacing,
-      inheritWidgetSpacing,
       isFirstWidget,
       isLastWidget,
       ignoreInlineStyles
@@ -26,8 +25,8 @@ class Widget extends Component {
       position: 'relative',
       display: 'inline-block',
       verticalAlign: 'middle',
-      paddingLeft: isFirstWidget ? undefined : widgetSpacing || inheritWidgetSpacing,
-      paddingRight: isLastWidget ? undefined : widgetSpacing || inheritWidgetSpacing,
+      paddingLeft: isFirstWidget ? undefined : widgetSpacing,
+      paddingRight: isLastWidget ? undefined : widgetSpacing,
       cursor: changeRating ? 'pointer' : undefined
     };
     return ignoreInlineStyles ? {} : widgetContainerStyle
@@ -39,11 +38,10 @@ class Widget extends Component {
       ignoreInlineStyles,
       isCurrentHoveredWidget,
       widgetDimension,
-      inheritWidgetDimension
     } = this.props;
     const widgetSvgStyle = {
-      width: widgetDimension || inheritWidgetDimension,
-      height: widgetDimension || inheritWidgetDimension,
+      width: widgetDimension,
+      height: widgetDimension,
       transition: 'transform .2s ease-in-out',
       transform: isCurrentHoveredWidget ? 'scale(1.1)' : undefined
     };
@@ -61,9 +59,6 @@ class Widget extends Component {
       widgetEmptyColor,
       widgetRatedColor,
       widgetHoverColor,
-      inheritWidgetEmptyColor,
-      inheritWidgetRatedColor,
-      inheritWidgetHoverColor,
       gradientPathName,
       inheritFillId,
       ignoreInlineStyles
@@ -71,12 +66,12 @@ class Widget extends Component {
 
     let fill;
     if (hoverMode) {
-      if (isHovered) fill = widgetHoverColor || inheritWidgetHoverColor;
-      else fill = widgetEmptyColor || inheritWidgetEmptyColor;
+      if (isHovered) fill = widgetHoverColor;
+      else fill = widgetEmptyColor;
     } else {
       if (isPartiallyFullWidget) fill = `url('${gradientPathName}#${this.fillId || inheritFillId}')`;
-      else if (isSelected) fill = widgetRatedColor || inheritWidgetRatedColor;
-      else fill = widgetEmptyColor || inheritWidgetEmptyColor;
+      else if (isSelected) fill = widgetRatedColor;
+      else fill = widgetEmptyColor;
     }
 
     const pathStyle = {
@@ -133,15 +128,14 @@ class Widget extends Component {
     const {
       widgetRatedColor,
       widgetEmptyColor,
-      inheritWidgetEmptyColor
     } = this.props;
     return (
       <defs>
         <linearGradient id={this.fillId} x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" className="stop-color-first" style={this.stopColorStyle(widgetRatedColor)} />
           <stop offset={this.offsetValue} className="stop-color-first" style={this.stopColorStyle(widgetRatedColor)} />
-          <stop offset={this.offsetValue} className="stop-color-final" style={this.stopColorStyle(widgetEmptyColor || inheritWidgetEmptyColor)} />
-          <stop offset="100%" className="stop-color-final" style={this.stopColorStyle(widgetEmptyColor || inheritWidgetEmptyColor)} />
+          <stop offset={this.offsetValue} className="stop-color-final" style={this.stopColorStyle(widgetEmptyColor)} />
+          <stop offset="100%" className="stop-color-final" style={this.stopColorStyle(widgetEmptyColor)} />
         </linearGradient>
       </defs>
     );
@@ -152,34 +146,16 @@ class Widget extends Component {
       changeRating,
       hoverOverWidget,
       unHoverOverWidget,
-      isPartiallyFullWidget,
-      svgIconPath,
-      inheritSvgIconPath,
-      svgIconViewBox,
-      inheritSvgIconViewBox,
-      widgetRatedColor,
-      inheritWidgetRatedColor,
-      widgetEmptyColor,
-      inheritWidgetEmptyColor,
-      widgetHoverColor,
-      inheritWidgetHoverColor,
-      widgetDimension,
-      inheritWidgetDimension,
-      widgetSpacing,
-      inheritWidgetSpacing,
       inheritFillId,
-      inheritSvg,
-      svg
+      svgIconViewBox,
+      svgIconPath,
+      svg,
+      hasCustomGradientColor
     } = this.props;
-    let customSvg = svg || inheritSvg;
+    let customSvg = svg;
     if (React.isValidElement(customSvg)) {
       customSvg = React.cloneElement(customSvg, {
         ...this.props,
-        widgetRatedColor: widgetRatedColor || inheritWidgetRatedColor,
-        widgetEmptyColor: widgetEmptyColor || inheritWidgetEmptyColor,
-        widgetHoverColor: widgetHoverColor || inheritWidgetHoverColor,
-        widgetDimension: widgetDimension || inheritWidgetDimension,
-        widgetSpacing: widgetSpacing || inheritWidgetSpacing,
         fillId: this.fillId || inheritFillId
       });
     }
@@ -193,15 +169,15 @@ class Widget extends Component {
       >
         {customSvg ? customSvg :
           <svg
-            viewBox={svgIconViewBox || inheritSvgIconViewBox}
+            viewBox={svgIconViewBox}
             className={this.widgetClasses}
             style={this.widgetSvgStyle}
           >
-            {isPartiallyFullWidget && widgetRatedColor ? this.renderIndividualGradient : null}
+            {hasCustomGradientColor ? this.renderIndividualGradient : null}
             <path
               className="widget"
               style={this.pathStyle}
-              d={svgIconPath || inheritSvgIconPath}
+              d={svgIconPath}
             />
           </svg>
         }
@@ -223,14 +199,7 @@ Widget.propTypes = {
   isFirstWidget: PropTypes.bool,
   isLastWidget: PropTypes.bool,
   hoverMode: PropTypes.bool,
-  inheritSvgIconPaths: PropTypes.string,
-  inheritSvgIconViewBox: PropTypes.string,
-  inheritSvg: PropTypes.string,
-  inheritWidgetRatedColor: PropTypes.string,
-  inheritWidgetEmptyColor: PropTypes.string,
-  inheritWidgetHoverColor: PropTypes.string,
-  inheritWidgetDimension: PropTypes.string,
-  inheritWidgetSpacing: PropTypes.string,
+  hasCustomGradientColor: PropTypes.bool,
 
   // customizable
   svgIconPath: PropTypes.string,

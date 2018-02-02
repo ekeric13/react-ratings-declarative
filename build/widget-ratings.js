@@ -177,6 +177,17 @@ var WidgetRatings = function (_Component) {
 
       var numberOfWidgets = children.length;
       return _react2.default.Children.map(children, function (child, index) {
+        var _child$props = child.props,
+            svgIconPath = _child$props.svgIconPath,
+            svgIconViewBox = _child$props.svgIconViewBox,
+            widgetHoverColor = _child$props.widgetHoverColor,
+            widgetEmptyColor = _child$props.widgetEmptyColor,
+            widgetRatedColor = _child$props.widgetRatedColor,
+            widgetDimension = _child$props.widgetDimension,
+            widgetSpacing = _child$props.widgetSpacing,
+            svg = _child$props.svg;
+
+
         var widgetRating = index + 1;
         var isSelected = widgetRating <= selectedRating;
 
@@ -209,14 +220,15 @@ var WidgetRatings = function (_Component) {
           isFirstWidget: isFirstWidget,
           isLastWidget: isLastWidget,
           hoverMode: hoverMode,
-          inheritSvgIconPath: svgIconPaths,
-          inheritSvgIconViewBox: svgIconViewBoxes,
-          inheritWidgetHoverColor: widgetHoverColors,
-          inheritWidgetEmptyColor: widgetEmptyColors,
-          inheritWidgetRatedColor: widgetRatedColors,
-          inheritWidgetDimension: widgetDimensions,
-          inheritWidgetSpacing: widgetSpacings,
-          inheritSvg: svgs
+          hasCustomGradientColor: (widgetRatedColor || widgetEmptyColor) && isPartiallyFullWidget,
+          svgIconPath: svgIconPath || svgIconPaths,
+          svgIconViewBox: svgIconViewBox || svgIconViewBoxes,
+          widgetHoverColor: widgetHoverColor || widgetHoverColors,
+          widgetEmptyColor: widgetEmptyColor || widgetEmptyColors,
+          widgetRatedColor: widgetRatedColor || widgetRatedColors,
+          widgetDimension: widgetDimension || widgetDimensions,
+          widgetSpacing: widgetSpacing || widgetSpacings,
+          svg: svg || svgs
         });
       });
     }

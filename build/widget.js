@@ -38,7 +38,7 @@ var Widget = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Widget.__proto__ || Object.getPrototypeOf(Widget)).call(this, props));
 
-    if (props.isPartiallyFullWidget && props.widgetRatedColor) {
+    if (props.hasCustomGradientColor) {
       _this.fillId = 'widgetGrad' + (0, _utils.randomNumber)();
     }
     return _this;
@@ -60,33 +60,15 @@ var Widget = function (_Component) {
           changeRating = _props.changeRating,
           hoverOverWidget = _props.hoverOverWidget,
           unHoverOverWidget = _props.unHoverOverWidget,
-          isPartiallyFullWidget = _props.isPartiallyFullWidget,
-          svgIconPath = _props.svgIconPath,
-          inheritSvgIconPath = _props.inheritSvgIconPath,
-          svgIconViewBox = _props.svgIconViewBox,
-          inheritSvgIconViewBox = _props.inheritSvgIconViewBox,
-          widgetRatedColor = _props.widgetRatedColor,
-          inheritWidgetRatedColor = _props.inheritWidgetRatedColor,
-          widgetEmptyColor = _props.widgetEmptyColor,
-          inheritWidgetEmptyColor = _props.inheritWidgetEmptyColor,
-          widgetHoverColor = _props.widgetHoverColor,
-          inheritWidgetHoverColor = _props.inheritWidgetHoverColor,
-          widgetDimension = _props.widgetDimension,
-          inheritWidgetDimension = _props.inheritWidgetDimension,
-          widgetSpacing = _props.widgetSpacing,
-          inheritWidgetSpacing = _props.inheritWidgetSpacing,
           inheritFillId = _props.inheritFillId,
-          inheritSvg = _props.inheritSvg,
-          svg = _props.svg;
+          svgIconViewBox = _props.svgIconViewBox,
+          svgIconPath = _props.svgIconPath,
+          svg = _props.svg,
+          hasCustomGradientColor = _props.hasCustomGradientColor;
 
-      var customSvg = svg || inheritSvg;
+      var customSvg = svg;
       if (_react2.default.isValidElement(customSvg)) {
         customSvg = _react2.default.cloneElement(customSvg, _extends({}, this.props, {
-          widgetRatedColor: widgetRatedColor || inheritWidgetRatedColor,
-          widgetEmptyColor: widgetEmptyColor || inheritWidgetEmptyColor,
-          widgetHoverColor: widgetHoverColor || inheritWidgetHoverColor,
-          widgetDimension: widgetDimension || inheritWidgetDimension,
-          widgetSpacing: widgetSpacing || inheritWidgetSpacing,
           fillId: this.fillId || inheritFillId
         }));
       }
@@ -102,15 +84,15 @@ var Widget = function (_Component) {
         customSvg ? customSvg : _react2.default.createElement(
           'svg',
           {
-            viewBox: svgIconViewBox || inheritSvgIconViewBox,
+            viewBox: svgIconViewBox,
             className: this.widgetClasses,
             style: this.widgetSvgStyle
           },
-          isPartiallyFullWidget && widgetRatedColor ? this.renderIndividualGradient : null,
+          hasCustomGradientColor ? this.renderIndividualGradient : null,
           _react2.default.createElement('path', {
             className: 'widget',
             style: this.pathStyle,
-            d: svgIconPath || inheritSvgIconPath
+            d: svgIconPath
           })
         )
       );
@@ -121,7 +103,6 @@ var Widget = function (_Component) {
       var _props2 = this.props,
           changeRating = _props2.changeRating,
           widgetSpacing = _props2.widgetSpacing,
-          inheritWidgetSpacing = _props2.inheritWidgetSpacing,
           isFirstWidget = _props2.isFirstWidget,
           isLastWidget = _props2.isLastWidget,
           ignoreInlineStyles = _props2.ignoreInlineStyles;
@@ -131,8 +112,8 @@ var Widget = function (_Component) {
         position: 'relative',
         display: 'inline-block',
         verticalAlign: 'middle',
-        paddingLeft: isFirstWidget ? undefined : widgetSpacing || inheritWidgetSpacing,
-        paddingRight: isLastWidget ? undefined : widgetSpacing || inheritWidgetSpacing,
+        paddingLeft: isFirstWidget ? undefined : widgetSpacing,
+        paddingRight: isLastWidget ? undefined : widgetSpacing,
         cursor: changeRating ? 'pointer' : undefined
       };
       return ignoreInlineStyles ? {} : widgetContainerStyle;
@@ -143,12 +124,11 @@ var Widget = function (_Component) {
       var _props3 = this.props,
           ignoreInlineStyles = _props3.ignoreInlineStyles,
           isCurrentHoveredWidget = _props3.isCurrentHoveredWidget,
-          widgetDimension = _props3.widgetDimension,
-          inheritWidgetDimension = _props3.inheritWidgetDimension;
+          widgetDimension = _props3.widgetDimension;
 
       var widgetSvgStyle = {
-        width: widgetDimension || inheritWidgetDimension,
-        height: widgetDimension || inheritWidgetDimension,
+        width: widgetDimension,
+        height: widgetDimension,
         transition: 'transform .2s ease-in-out',
         transform: isCurrentHoveredWidget ? 'scale(1.1)' : undefined
       };
@@ -166,9 +146,6 @@ var Widget = function (_Component) {
           widgetEmptyColor = _props4.widgetEmptyColor,
           widgetRatedColor = _props4.widgetRatedColor,
           widgetHoverColor = _props4.widgetHoverColor,
-          inheritWidgetEmptyColor = _props4.inheritWidgetEmptyColor,
-          inheritWidgetRatedColor = _props4.inheritWidgetRatedColor,
-          inheritWidgetHoverColor = _props4.inheritWidgetHoverColor,
           gradientPathName = _props4.gradientPathName,
           inheritFillId = _props4.inheritFillId,
           ignoreInlineStyles = _props4.ignoreInlineStyles;
@@ -176,9 +153,9 @@ var Widget = function (_Component) {
 
       var fill = void 0;
       if (hoverMode) {
-        if (isHovered) fill = widgetHoverColor || inheritWidgetHoverColor;else fill = widgetEmptyColor || inheritWidgetEmptyColor;
+        if (isHovered) fill = widgetHoverColor;else fill = widgetEmptyColor;
       } else {
-        if (isPartiallyFullWidget) fill = 'url(\'' + gradientPathName + '#' + (this.fillId || inheritFillId) + '\')';else if (isSelected) fill = widgetRatedColor || inheritWidgetRatedColor;else fill = widgetEmptyColor || inheritWidgetEmptyColor;
+        if (isPartiallyFullWidget) fill = 'url(\'' + gradientPathName + '#' + (this.fillId || inheritFillId) + '\')';else if (isSelected) fill = widgetRatedColor;else fill = widgetEmptyColor;
       }
 
       var pathStyle = {
@@ -226,8 +203,7 @@ var Widget = function (_Component) {
     get: function get() {
       var _props6 = this.props,
           widgetRatedColor = _props6.widgetRatedColor,
-          widgetEmptyColor = _props6.widgetEmptyColor,
-          inheritWidgetEmptyColor = _props6.inheritWidgetEmptyColor;
+          widgetEmptyColor = _props6.widgetEmptyColor;
 
       return _react2.default.createElement(
         'defs',
@@ -237,8 +213,8 @@ var Widget = function (_Component) {
           { id: this.fillId, x1: '0%', y1: '0%', x2: '100%', y2: '0%' },
           _react2.default.createElement('stop', { offset: '0%', className: 'stop-color-first', style: this.stopColorStyle(widgetRatedColor) }),
           _react2.default.createElement('stop', { offset: this.offsetValue, className: 'stop-color-first', style: this.stopColorStyle(widgetRatedColor) }),
-          _react2.default.createElement('stop', { offset: this.offsetValue, className: 'stop-color-final', style: this.stopColorStyle(widgetEmptyColor || inheritWidgetEmptyColor) }),
-          _react2.default.createElement('stop', { offset: '100%', className: 'stop-color-final', style: this.stopColorStyle(widgetEmptyColor || inheritWidgetEmptyColor) })
+          _react2.default.createElement('stop', { offset: this.offsetValue, className: 'stop-color-final', style: this.stopColorStyle(widgetEmptyColor) }),
+          _react2.default.createElement('stop', { offset: '100%', className: 'stop-color-final', style: this.stopColorStyle(widgetEmptyColor) })
         )
       );
     }
@@ -260,23 +236,17 @@ Widget.propTypes = {
   isFirstWidget: _propTypes2.default.bool,
   isLastWidget: _propTypes2.default.bool,
   hoverMode: _propTypes2.default.bool,
-  inheritSvgIconPaths: _propTypes2.default.string,
-  inheritSvgIconViewBox: _propTypes2.default.string,
-  inheritWidgetRatedColor: _propTypes2.default.string,
-  inheritWidgetEmptyColor: _propTypes2.default.string,
-  inheritWidgetHoverColor: _propTypes2.default.string,
-  inheritWidgetDimension: _propTypes2.default.string,
-  inheritWidgetSpacing: _propTypes2.default.string,
+  hasCustomGradientColor: _propTypes2.default.bool,
 
   // customizable
   svgIconPath: _propTypes2.default.string,
   svgIconViewBox: _propTypes2.default.string,
+  svg: _propTypes2.default.node,
   widgetRatedColor: _propTypes2.default.string,
   widgetEmptyColor: _propTypes2.default.string,
   widgetHoverColor: _propTypes2.default.string,
   widgetDimension: _propTypes2.default.string,
-  widgetSpacing: _propTypes2.default.string,
-  svg: _propTypes2.default.node
+  widgetSpacing: _propTypes2.default.string
 };
 
 exports.default = Widget;

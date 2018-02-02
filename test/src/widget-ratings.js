@@ -108,6 +108,17 @@ class WidgetRatings extends Component {
 
     const numberOfWidgets = children.length;
     return React.Children.map(children, (child, index) => {
+      const {
+        svgIconPath,
+        svgIconViewBox,
+        widgetHoverColor,
+        widgetEmptyColor,
+        widgetRatedColor,
+        widgetDimension,
+        widgetSpacing,
+        svg
+      } = child.props;
+
       const widgetRating = index + 1;
       const isSelected = widgetRating <= selectedRating;
 
@@ -138,14 +149,15 @@ class WidgetRatings extends Component {
         isFirstWidget,
         isLastWidget,
         hoverMode,
-        inheritSvgIconPath: svgIconPaths,
-        inheritSvgIconViewBox: svgIconViewBoxes,
-        inheritWidgetHoverColor: widgetHoverColors,
-        inheritWidgetEmptyColor: widgetEmptyColors,
-        inheritWidgetRatedColor: widgetRatedColors,
-        inheritWidgetDimension: widgetDimensions,
-        inheritWidgetSpacing: widgetSpacings,
-        inheritSvg: svgs
+        hasCustomGradientColor: (widgetRatedColor || widgetEmptyColor) && isPartiallyFullWidget,
+        svgIconPath: svgIconPath || svgIconPaths,
+        svgIconViewBox: svgIconViewBox || svgIconViewBoxes,
+        widgetHoverColor: widgetHoverColor || widgetHoverColors,
+        widgetEmptyColor: widgetEmptyColor || widgetEmptyColors,
+        widgetRatedColor: widgetRatedColor || widgetRatedColors,
+        widgetDimension: widgetDimension || widgetDimensions,
+        widgetSpacing: widgetSpacing || widgetSpacings,
+        svg: svg || svgs
       });
     });
   }
