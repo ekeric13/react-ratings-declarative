@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { randomNumber } from './utils';
 
-class WidgetRatings extends Component {
+import Widget from './widget';
+
+class Ratings extends Component {
   constructor(props) {
     super(props);
     this.fillId = `widgetGrad${randomNumber()}`;
@@ -10,6 +12,7 @@ class WidgetRatings extends Component {
       highestWidgetHovered: -Infinity
     }
   }
+  static Widget = Widget
 
   get
   widgetRatingsStyle() {
@@ -193,7 +196,7 @@ class WidgetRatings extends Component {
   }
 }
 
-WidgetRatings.propTypes = {
+Ratings.propTypes = {
   rating: PropTypes.number.isRequired,
   typeOfWidget: PropTypes.string.isRequired,
   changeRating: PropTypes.func,
@@ -209,7 +212,7 @@ WidgetRatings.propTypes = {
   svgs: PropTypes.node
 };
 
-WidgetRatings.defaultProps = {
+Ratings.defaultProps = {
   rating: 0,
   typeOfWidget: 'Star',
   changeRating: null,
@@ -224,4 +227,4 @@ WidgetRatings.defaultProps = {
   widgetSpacings: '7px',
 };
 
-export default WidgetRatings;
+export default Ratings;
