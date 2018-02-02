@@ -1,0 +1,62 @@
+.widget-ratings {
+  position: relative;
+  display: inline-flex;
+}
+
+.widget-svg {
+  width: 50px;
+  height: 50px;
+}
+
+.default .widget-svg {
+  width: 14px;
+  height: 14px;
+}
+
+.some-modal .widget-svg {
+  width: 18px;
+  height: 18px;
+}
+
+.widget-container {
+  position: relative;
+}
+
+.default .widget-container {
+  margin-right: 7px;
+}
+
+.widget-svg .widget {
+  fill: #cbd3e3;
+}
+
+.widget-svg.widget-level .widget {
+  fill: #6d7a82;
+}
+
+.widget-svg.widget-selected .widget {
+  fill: #ff9700;
+}
+
+/* Recommend to do this inline*/
+.widget-svg.widget-level.widget-multi-level .widget {
+  /*fill: url('/#widgetGrad');*/
+}
+
+.widget-grad {
+  position: absolute;
+  z-index: 0;
+  width: 10px;
+  height: 10px;
+  visibility: hidden;
+}
+
+.stop-color-first {
+  stop-color: #6d7a82;
+  stop-opacity: 1;
+}
+
+.stop-color-final {
+  stop-color: #cbd3e3;
+  stop-opacity: 1;
+}

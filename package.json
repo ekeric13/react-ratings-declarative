@@ -1,0 +1,52 @@
+{
+  "name": "react-ratings-declarative",
+  "version": "0.0.1",
+  "description": "A customizable rating component for selecting x widgets or visualizing x widgets",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "make build"
+  },
+  "author": "Eric Kennedy <ekeric13@gmail.com> (https://github.com/ekeric13)",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "react",
+    "component",
+    "star",
+    "stars",
+    "rating",
+    "ratings",
+    "star ratings",
+    "star rating",
+    "rate",
+    "input",
+    "svg",
+    "SVG",
+    "star rating component",
+    "svg icons",
+    "react star rating component",
+    "react widgets",
+    "rating widgets"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ekeric13/react-ratings-declarative.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ekeric13/react-ratings-declarative/issues"
+  },
+  "homepage": "https://github.com/ekeric13/react-ratings-declarative",
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "devDependencies": {
+    "react-fatigue-dev": "github:ekeric13/react-fatigue-dev"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0"
+  }
+}
