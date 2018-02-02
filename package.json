@@ -1,6 +1,6 @@
 {
   "name": "react-ratings-declarative",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A customizable rating component for selecting x widgets or visualizing x widgets",
   "main": "build/index.js",
   "scripts": {

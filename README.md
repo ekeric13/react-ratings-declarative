@@ -72,7 +72,7 @@ class Bar extends Component {
 
 ## API
 
-### WidgetRatings
+### Ratings
 
 | Prop | Type | Default | Description | Example |
 | ---- | ---- | ------- | ----------- | ------- |
