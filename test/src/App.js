@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-// import WidgetRatings, { Widget } from 'react-ratings-declarative';
-import WidgetRatings from './widget-ratings';
-import Widget from './widget';
+import WidgetRatings, { Widget } from 'react-ratings-declarative';
+// import WidgetRatings from './widget-ratings';
+// import Widget from './widget';
 import Cat from './cat';
 
 class App extends Component {
@@ -44,8 +44,7 @@ class App extends Component {
               svgIconPath="M2 1 h1 v1 h1 v1 h-1 v1 h-1 v-1 h-1 v-1 h1 z"
             />
             <Widget widgetHoverColor="black" />
-            <Widget
-             
+            <Widget 
             />
           </WidgetRatings>
         </div>
