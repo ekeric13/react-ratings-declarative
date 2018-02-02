@@ -1,1 +1,1 @@
-export { default } from './widget-ratings';
+export { default } from './ratings';

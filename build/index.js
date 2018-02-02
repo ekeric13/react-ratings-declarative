@@ -4,12 +4,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _widgetRatings = require('./widget-ratings');
+var _ratings = require('./ratings');
 
 Object.defineProperty(exports, 'default', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_widgetRatings).default;
+    return _interopRequireDefault(_ratings).default;
   }
 });
 
