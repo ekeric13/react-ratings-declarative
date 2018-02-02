@@ -1,6 +1,6 @@
-# React Star Ratings
+# React Ratings Declarative
 
-> Customizable react star ratings. SVG stars that show aggregate star ratings to the hundreths decimal point.
+> A customizable rating component for selecting x widgets or visualizing x widgets. SVG stars that show aggregate star ratings to the hundreths decimal point.
 
 ## [Install](https://www.npmjs.com/package/react-ratings-declarative)
 
@@ -15,12 +15,12 @@ npm install --save react-ratings-declarative
 
 ### Demo Example Image
 
-![](http://i.imgur.com/a8eWxhd.png)
+![](http://i.imgur.com/5CwWVam.png)
 
 ## Usage
 
 ```js
-import WidgetRatings, { Widget } from './react-ratings-declarative';
+import WidgetRatings, { Widget } from 'react-ratings-declarative';
 
 class Foo extends Component {
     changeRating( newRating ) {
