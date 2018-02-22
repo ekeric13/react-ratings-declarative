@@ -1,2 +1,2 @@
-import 'ie-isInteger-polyfill';
+import './ie-isInteger-polyfill';
 export { default } from './ratings';

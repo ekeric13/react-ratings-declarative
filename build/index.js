@@ -14,6 +14,6 @@ Object.defineProperty(exports, 'default', {
   }
 });
 
-require('ie-isInteger-polyfill');
+require('./ie-isInteger-polyfill');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
