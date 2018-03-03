@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import Cat from './cat';
-import './ie-isInteger-polyfill';
+// import './ie-isInteger-polyfill';
 import Ratings from 'react-ratings-declarative';
 // import Ratings from './ratings';
 // console.log('what are these', Ratings);

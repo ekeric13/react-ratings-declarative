@@ -60,7 +60,7 @@ it('changes rating when clicked', ()=> {
     </Ratings>
   );
 
-  expect(wrapper.prop('rating')).toEqual(3);
+  expect(wrapper.prop('rating')).toEqual(INITIAL_RATING);
   let fourthStar = wrapper.find(Ratings.Widget).at(3);
   expect(fourthStar.prop('isSelected')).toBe(false);
 
@@ -69,5 +69,5 @@ it('changes rating when clicked', ()=> {
 
   fourthStar = wrapper.find(Ratings.Widget).at(3);
   expect(fourthStar.prop('isSelected')).toBe(true);
-  expect(wrapper.prop('rating')).toEqual(4);
+  expect(wrapper.prop('rating')).toEqual(NEXT_RATING);
 });
