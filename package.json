@@ -1,10 +1,10 @@
 {
   "name": "react-ratings-declarative",
-  "version": "3.3.1",
+  "version": "3.4.0",
   "description": "A customizable rating component for selecting x widgets or visualizing x widgets",
   "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest __tests__",
     "build": "make build"
   },
   "author": "Eric Kennedy <ekeric13@gmail.com> (https://github.com/ekeric13)",
@@ -42,7 +42,16 @@
     ]
   },
   "devDependencies": {
-    "react-fatigue-dev": "github:ekeric13/react-fatigue-dev"
+    "babel-jest": "^22.4.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.2",
+    "react-dom": "^16.2.0",
+    "react-fatigue-dev": "github:ekeric13/react-fatigue-dev",
+    "react-test-renderer": "^16.2.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",

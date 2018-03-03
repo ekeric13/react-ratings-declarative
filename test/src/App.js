@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-// import WidgetRatings, { Widget } from 'react-ratings-declarative';
-import Ratings from './ratings';
-// import Widget from './widget';
 import Cat from './cat';
+import './ie-isInteger-polyfill';
+import Ratings from 'react-ratings-declarative';
+// import Ratings from './ratings';
+// console.log('what are these', Ratings);
+// import Widget from './widget';
 
 class App extends Component {
   constructor(props) {
