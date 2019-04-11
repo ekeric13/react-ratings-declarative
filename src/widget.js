@@ -150,7 +150,23 @@ class Widget extends Component {
       svgIconViewBox,
       svgIconPath,
       svg,
-      hasCustomGradientColor
+      hasCustomGradientColor,
+      gradientPathName,
+      hoverMode,
+      ignoreInlineStyles,
+      isCurrentHoveredWidget,
+      isFirstWidget,
+      isHovered,
+      isLastWidget,
+      isPartiallyFullWidget,
+      isSelected,
+      selectedRating,
+      widgetDimension,
+      widgetEmptyColor,
+      widgetHoverColor,
+      widgetRatedColor,
+      widgetSpacing,
+      ...otherProps
     } = this.props;
     let customSvg = svg;
     if (React.isValidElement(customSvg)) {
@@ -166,6 +182,7 @@ class Widget extends Component {
         onMouseEnter={hoverOverWidget}
         onMouseLeave={unHoverOverWidget}
         onClick={changeRating}
+        {...otherProps}
       >
         {customSvg ? customSvg :
           <svg
