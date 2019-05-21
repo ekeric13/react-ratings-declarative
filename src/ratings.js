@@ -96,6 +96,7 @@ class Ratings extends Component {
       changeRating,
       rating: selectedRating,
       children,
+      disableHover,
       ignoreInlineStyles,
       gradientPathName,
       widgetEmptyColors,
@@ -126,7 +127,7 @@ class Ratings extends Component {
       const isSelected = widgetRating <= selectedRating;
 
       // hovered only matters when changeRating is true
-      const hoverMode = highestWidgetHovered > 0;
+      const hoverMode = !disableHover && highestWidgetHovered > 0;
       const isHovered = widgetRating <= highestWidgetHovered;
       const isCurrentHoveredWidget = widgetRating === highestWidgetHovered;
 
@@ -142,8 +143,8 @@ class Ratings extends Component {
         ignoreInlineStyles,
         gradientPathName,
         changeRating: changeRating ? () => changeRating(widgetRating) : null,
-        hoverOverWidget: changeRating ? this.hoverOverWidget(widgetRating) : null,
-        unHoverOverWidget: changeRating ? this.unHoverOverWidget : null,
+        hoverOverWidget: !disableHover && changeRating ? this.hoverOverWidget(widgetRating) : null,
+        unHoverOverWidget: !disableHover && changeRating ? this.unHoverOverWidget : null,
         inheritFillId: this.fillId,
         isSelected,
         isHovered,
@@ -200,6 +201,7 @@ Ratings.propTypes = {
   rating: PropTypes.number.isRequired,
   typeOfWidget: PropTypes.string.isRequired,
   changeRating: PropTypes.func,
+  disableHover: PropTypes.bool.isRequired,
   gradientPathName: PropTypes.string.isRequired,
   ignoreInlineStyles: PropTypes.bool.isRequired,
   svgIconPaths: PropTypes.string.isRequired,
@@ -216,6 +218,7 @@ Ratings.defaultProps = {
   rating: 0,
   typeOfWidget: 'Star',
   changeRating: null,
+  disableHover: false,
   ignoreInlineStyles: false,
   gradientPathName: '',
   svgIconPaths: 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z',
