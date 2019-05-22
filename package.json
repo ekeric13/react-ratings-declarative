@@ -49,13 +49,13 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.4.2",
-    "react-dom": "^16.2.0",
+    "react-dom": "^15.6.1",
     "react-fatigue-dev": "github:ekeric13/react-fatigue-dev",
     "react-test-renderer": "^16.2.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0"
+    "react": "^15.6.1"
   }
 }
