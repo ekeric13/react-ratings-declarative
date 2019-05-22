@@ -128,8 +128,8 @@ class Ratings extends Component {
 
       // hovered only matters when changeRating is true
       const hoverMode = !disableHover && highestWidgetHovered > 0;
-      const isHovered = widgetRating <= highestWidgetHovered;
-      const isCurrentHoveredWidget = widgetRating === highestWidgetHovered;
+      const isHovered = !disableHover && widgetRating <= highestWidgetHovered;
+      const isCurrentHoveredWidget = !disableHover && widgetRating === highestWidgetHovered;
 
       // only matters when changeRating is false
       // given widget 5 and rating 4.2:  5 > 4.2 && 4 < 4.2;

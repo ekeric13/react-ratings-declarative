@@ -198,8 +198,8 @@ var Ratings = function (_Component) {
 
         // hovered only matters when changeRating is true
         var hoverMode = !disableHover && highestWidgetHovered > 0;
-        var isHovered = widgetRating <= highestWidgetHovered;
-        var isCurrentHoveredWidget = widgetRating === highestWidgetHovered;
+        var isHovered = !disableHover && widgetRating <= highestWidgetHovered;
+        var isCurrentHoveredWidget = !disableHover && widgetRating === highestWidgetHovered;
 
         // only matters when changeRating is false
         // given widget 5 and rating 4.2:  5 > 4.2 && 4 < 4.2;
