@@ -80,7 +80,7 @@ class Bar extends Component {
 | typeOfWidget | string | 'Star' | The type of widget used as a rating meter | `Point` |
 | changeRating | function | ()=>{} | Callback that will be passed the new rating a user selects | `const setNewRating = (rating) => this.props.dispatch( fooActions.setRating(rating) )` |
 | gradientPathName | string | '' | gradientPathname needed if app's path is not at the root | `/app/` |
-| ignoreInlineStyles | boolean | false | ignore all the inline styles and write your own css using the provided classes | `true` | 
+| ignoreInlineStyles | boolean | false | ignore all the inline styles and write your own css using the provided classes | `true` |
 | svgIconPaths | string | 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z' | Set a path that describes the svg shape for all the children | 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z' |
 | svgIconViewBoxes | string | '0 0 51 48' | Set the view box for a custom svg path you might have for all the children | '0 0 51 48' |
 | svgs | node | none | Use a custom svg or react element for all the children | `<svg><circle /></svg>` |
@@ -89,6 +89,7 @@ class Bar extends Component {
 | widgetHoverColors | string | 'rgb(230, 67, 47)' | Color of widget when hovering over it in selection mode, applied to all the children | `yellow` |
 | widgetDimensions | string | '50px' | The width and height of the star, applied to all the children | `15px` |
 | widgetSpacings | string | '7px' | The spacing between the widgets, applied to all the children | `0` |
+| disableHover | boolean | false | Disables hover mode on widgets. Set to true when ('ontouchstart' in window) for the component to work on touch screens. |
 
 ### Widget
 
