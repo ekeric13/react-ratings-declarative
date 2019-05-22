@@ -166,6 +166,7 @@ var Ratings = function (_Component) {
           changeRating = _props3.changeRating,
           selectedRating = _props3.rating,
           children = _props3.children,
+          disableHover = _props3.disableHover,
           ignoreInlineStyles = _props3.ignoreInlineStyles,
           gradientPathName = _props3.gradientPathName,
           widgetEmptyColors = _props3.widgetEmptyColors,
@@ -196,7 +197,7 @@ var Ratings = function (_Component) {
         var isSelected = widgetRating <= selectedRating;
 
         // hovered only matters when changeRating is true
-        var hoverMode = highestWidgetHovered > 0;
+        var hoverMode = !disableHover && highestWidgetHovered > 0;
         var isHovered = widgetRating <= highestWidgetHovered;
         var isCurrentHoveredWidget = widgetRating === highestWidgetHovered;
 
@@ -214,8 +215,8 @@ var Ratings = function (_Component) {
           changeRating: changeRating ? function () {
             return changeRating(widgetRating);
           } : null,
-          hoverOverWidget: changeRating ? _this2.hoverOverWidget(widgetRating) : null,
-          unHoverOverWidget: changeRating ? _this2.unHoverOverWidget : null,
+          hoverOverWidget: !disableHover && changeRating ? _this2.hoverOverWidget(widgetRating) : null,
+          unHoverOverWidget: !disableHover && changeRating ? _this2.unHoverOverWidget : null,
           inheritFillId: _this2.fillId,
           isSelected: isSelected,
           isHovered: isHovered,
@@ -248,6 +249,7 @@ Ratings.propTypes = {
   rating: _propTypes2.default.number.isRequired,
   typeOfWidget: _propTypes2.default.string.isRequired,
   changeRating: _propTypes2.default.func,
+  disableHover: _propTypes2.default.bool.isRequired,
   gradientPathName: _propTypes2.default.string.isRequired,
   ignoreInlineStyles: _propTypes2.default.bool.isRequired,
   svgIconPaths: _propTypes2.default.string.isRequired,
@@ -264,6 +266,7 @@ Ratings.defaultProps = {
   rating: 0,
   typeOfWidget: 'Star',
   changeRating: null,
+  disableHover: false,
   ignoreInlineStyles: false,
   gradientPathName: '',
   svgIconPaths: 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z',
