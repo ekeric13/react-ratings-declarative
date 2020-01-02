@@ -84,9 +84,9 @@ class Bar extends Component {
 | svgIconPaths | string | 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z' | Set a path that describes the svg shape for all the children | 'm25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z' |
 | svgIconViewBoxes | string | '0 0 51 48' | Set the view box for a custom svg path you might have for all the children | '0 0 51 48' |
 | svgs | node | none | Use a custom svg or react element for all the children | `<svg><circle /></svg>` |
-| widgetRatedColors | string | 'rgb(109, 122, 130)' | Color of widgets that the user has rated, applied to all the children | `black` |
-| widgetEmptyColors | string | 'rgb(203, 211, 227)' | Color of widgets that the use hasn't rated, applied to all the children | `grey` |
-| widgetHoverColors | string | 'rgb(230, 67, 47)' | Color of widget when hovering over it in selection mode, applied to all the children | `yellow` |
+| widgetRatedColor | string | 'rgb(109, 122, 130)' | Color of widgets that the user has rated, applied to all the children | `black` |
+| widgetEmptyColor | string | 'rgb(203, 211, 227)' | Color of widgets that the use hasn't rated, applied to all the children | `grey` |
+| widgetHoverColor | string | 'rgb(230, 67, 47)' | Color of widget when hovering over it in selection mode, applied to all the children | `yellow` |
 | widgetDimensions | string | '50px' | The width and height of the star, applied to all the children | `15px` |
 | widgetSpacings | string | '7px' | The spacing between the widgets, applied to all the children | `0` |
 
